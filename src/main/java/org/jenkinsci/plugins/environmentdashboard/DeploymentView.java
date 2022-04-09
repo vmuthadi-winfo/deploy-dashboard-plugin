@@ -10,6 +10,7 @@ import hudson.util.FormValidation;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import net.sf.json.JSONObject;
+import org.jenkinsci.plugins.environmentdashboard.Deployment;
 import org.jenkinsci.plugins.environmentdashboard.Deployment.DeploymentAction;
 import org.jenkinsci.plugins.workflow.job.WorkflowJob;
 import org.jenkinsci.plugins.workflow.job.WorkflowRun;
@@ -79,7 +80,10 @@ public class DeploymentView extends ListView {
 
             public DeploymentAction getCurrentAction() {
                 return actions.get(0);
+				return actions.get(1);
             }
+			
+			}
         }
     }
 

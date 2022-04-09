@@ -18,11 +18,14 @@ public class Deployment extends Builder implements SimpleBuildStep {
 
     private final String env;
     private final String buildNumber;
+    private final String Reference;
 
     @DataBoundConstructor
-    public Deployment(String env, String buildNumber) {
+    public Deployment(String env, String buildNumber, String Reference) {
         this.env = env;
         this.buildNumber = buildNumber;
+        this.Reference = Reference;
+
     }
 
     public String getEnv() {
@@ -33,6 +36,11 @@ public class Deployment extends Builder implements SimpleBuildStep {
         return buildNumber;
     }
 
+
+    public String getReference() {
+        return Reference;
+    }
+	
     @Override
     public void perform(
             @Nonnull Run<?, ?> run,
@@ -42,7 +50,8 @@ public class Deployment extends Builder implements SimpleBuildStep {
     ) throws InterruptedException, IOException {
         run.addAction(new DeploymentAction(
                 env,
-                buildNumber
+                buildNumber,
+				Reference
         ));
     }
 
@@ -66,10 +75,12 @@ public class Deployment extends Builder implements SimpleBuildStep {
         private Run run;
         private String env;
         private String buildNumber;
+        private String Reference;
 
-        public DeploymentAction(String env, String buildNumber) {
+        public DeploymentAction(String env, String buildNumber, String Reference) {
             this.env = env;
             this.buildNumber = buildNumber;
+            this.Reference = Reference;
         }
 
         @Override
@@ -81,14 +92,19 @@ public class Deployment extends Builder implements SimpleBuildStep {
         public String getDisplayName() {
             return String.format(
                     "Deployment %s to %s",
+                    Reference,
                     buildNumber,
-                    env
+					env
             );
         }
 
         @Override
         public String getUrlName() {
             return null;
+        }
+
+        public String getReference() {
+            return Reference;
         }
 
         public String getBuildNumber() {

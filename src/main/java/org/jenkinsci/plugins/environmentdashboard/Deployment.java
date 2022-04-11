@@ -92,8 +92,8 @@ public class Deployment extends Builder implements SimpleBuildStep {
         public String getDisplayName() {
             return String.format(
                     "Deployment %s to %s",
-                    Reference,
                     buildNumber,
+                    Reference,
 					env
             );
         }
@@ -103,14 +103,15 @@ public class Deployment extends Builder implements SimpleBuildStep {
             return null;
         }
 
-        public String getReference() {
-            return Reference;
-        }
 
         public String getBuildNumber() {
             return buildNumber;
         }
 
+        public String getReference() {
+            return Reference;
+        }
+		
         public String getEnv() {
             return env;
         }

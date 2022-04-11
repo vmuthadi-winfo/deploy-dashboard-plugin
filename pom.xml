@@ -6,7 +6,7 @@
     <version>0.1.1-SNAPSHOT</version>
     <packaging>hpi</packaging>
 
-    <name>Deploy Dashboard Plugin by Namecheap</name>
+    <name>Deploy Dashboard Plugin</name>
     <description>
         Jenkins view dashboard that shows the information about which releases deployed to which environment.
     </description>
@@ -52,23 +52,6 @@
       <tag>HEAD</tag>
   </scm>
 
-    <developers>
-        <developer>
-            <id>vetal2409</id>
-            <name>Vitalii Sydorenko</name>
-            <email>vitaliy.sidorenko@namecheap.com</email>
-        </developer>
-        <developer>
-            <id>StyleT</id>
-            <name>Vlad Fedosov</name>
-            <email>vladlen.f@namecheap.com</email>
-        </developer>
-        <developer>
-            <id>vetal2409</id>
-            <name>Yuriy Puchkov</name>
-            <email>yuriy.puchkov@namecheap.com</email>
-        </developer>
-    </developers>
 
     <repositories>
         <repository>

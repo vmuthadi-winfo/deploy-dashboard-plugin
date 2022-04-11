@@ -79,11 +79,9 @@ public class DeploymentView extends ListView {
             private final List<DeploymentAction> actions;
 
             public DeploymentAction getCurrentAction() {
-                return actions.get(0);
-				return actions.get(1);
+                return actions.get(1);
             }
 			
-			}
         }
     }
 
